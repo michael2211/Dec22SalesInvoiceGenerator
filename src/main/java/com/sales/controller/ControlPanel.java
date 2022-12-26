@@ -268,10 +268,9 @@ public class ControlPanel implements ActionListener, ListSelectionListener {
     }
 
     private void createLineOK() {
-        
-       lineDialog = new LineDialog(frame);
-        
+         
        String item = lineDialog.getItemNameField().getText();
+       
         String countStr = lineDialog.getItemCountField().getText();
         String priceStr = lineDialog.getItemPriceField().getText();
         int count = Integer.parseInt(countStr);
