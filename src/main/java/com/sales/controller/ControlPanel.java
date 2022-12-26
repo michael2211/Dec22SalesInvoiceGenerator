@@ -33,6 +33,7 @@ public class ControlPanel implements ActionListener, ListSelectionListener {
     
     
     
+    
     public ControlPanel (InvoiceFrame frame){
     this.frame = frame;
     }
@@ -293,7 +294,7 @@ public class ControlPanel implements ActionListener, ListSelectionListener {
 
     private void createInvoiceOK() {
         
-       invoiceDialog = new InvoiceDialog(frame);
+       
         
          String date = invoiceDialog.getInvDateField().getText();
         String customer = invoiceDialog.getCustNameField().getText();
