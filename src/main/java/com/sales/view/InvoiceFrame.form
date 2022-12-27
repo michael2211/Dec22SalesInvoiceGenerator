@@ -13,6 +13,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Load File"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadFileMenuItemActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="loadFileMenuItem.addActionListener(controller);&#xd;&#xa;"/>
               </AuxValues>
@@ -21,8 +24,12 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value=" Save File"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveFileMenuItemActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="saveFileMenuItem.addActionListener(controller);&#xd;&#xa;"/>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="InvoiceFrame_saveFileMenuItem"/>
               </AuxValues>
             </MenuItem>
           </SubComponents>
@@ -173,7 +180,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="invoiceTable.getSelectionModel().addListSelectionListener(controller);&#xd;&#xa;"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="invoiceTable.getSelectionModel().addListSelectionListener(controller);&#xd;&#xa;invoiceTable.setModel(getInvoicesTableModel());"/>
           </AuxValues>
         </Component>
       </SubComponents>

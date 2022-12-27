@@ -8,10 +8,8 @@ public class Invoice {
     private int num;
     private String date;
     private String customer;
-    
     private ArrayList<Line> lines;
     
-    private double invoiceTotal;
     
         public Invoice() {
     }
@@ -54,12 +52,12 @@ public class Invoice {
     }
     
     public double getInvoiceTotal(){
-                double totalLine = 0.0;
+                double total = 0.0;
         for (Line line : getLines()) {
-            totalLine += line.getLineTotal();
+            total += line.getLineTotal();
         }
         
-        return totalLine;
+        return total;
     }
 
     @Override

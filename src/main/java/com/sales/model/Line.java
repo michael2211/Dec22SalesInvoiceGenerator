@@ -7,7 +7,6 @@ public class Line {
     private String item;
     private double price;
     private int count;
-    
     private Invoice invoice;
 
     public Line() {
@@ -20,6 +19,13 @@ public class Line {
         this.count = count;
         this.invoice = invoice;
     }
+    
+      public double getLineTotal ()
+    {
+        
+        return price*count;
+    }
+    
 
 
     public String getItem() {
@@ -46,12 +52,7 @@ public class Line {
         this.count = count;
     }
 
-    public double getLineTotal ()
-    {
-        
-        return price*count;
-    }
-    
+  
     
     @Override
     public String toString() {

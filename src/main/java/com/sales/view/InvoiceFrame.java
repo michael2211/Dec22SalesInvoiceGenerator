@@ -36,6 +36,7 @@ public class InvoiceFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         invoiceTable = new javax.swing.JTable();
         invoiceTable.getSelectionModel().addListSelectionListener(controller);
+        invoiceTable.setModel(getInvoicesTableModel());
         createInvoiceButton = new javax.swing.JButton();
         createInvoiceButton.addActionListener(controller);
         deleteInvoiceButton = new javax.swing.JButton();
@@ -108,9 +109,19 @@ public class InvoiceFrame extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         loadFileMenuItem.setText("Load File");
+        loadFileMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadFileMenuItemActionPerformed(evt);
+            }
+        });
         jMenu1.add(loadFileMenuItem);
 
         saveFileMenuItem.setText(" Save File");
+        saveFileMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveFileMenuItemActionPerformed(evt);
+            }
+        });
         jMenu1.add(saveFileMenuItem);
 
         jMenuBar1.add(jMenu1);
@@ -197,6 +208,14 @@ public class InvoiceFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveFileMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFileMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveFileMenuItemActionPerformed
+
+    private void loadFileMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadFileMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loadFileMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,6 +371,9 @@ public class InvoiceFrame extends javax.swing.JFrame {
     }
 
     public InvoicesTableModel getInvoicesTableModel() {
+        if (invoicesTableModel == null) {
+            invoicesTableModel = new InvoicesTableModel(getInvoices());
+        }
         return invoicesTableModel;
     }
 
@@ -364,15 +386,14 @@ public int getNextInvoiceNumber(){
     
     int num=0;
     
-    for (Invoice invoice : invoices){
+    for (Invoice invoice : getInvoices()){
         
         if (invoice.getNum() > num ) 
             num = invoice.getNum();
         
     }
     
-    
-    return num;
+    return ++num;
 }
  
  

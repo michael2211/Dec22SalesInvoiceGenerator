@@ -132,7 +132,6 @@ public class ControlPanel implements ActionListener, ListSelectionListener {
                         JOptionPane.showMessageDialog(frame, "Error in line format", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-             
                 result = fc.showOpenDialog(frame);
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File lineFile = fc.getSelectedFile();
@@ -168,8 +167,6 @@ public class ControlPanel implements ActionListener, ListSelectionListener {
                 frame.setInvoicesTableModel(invoicesTableModel);
                 frame.getInvoiceTable().setModel(invoicesTableModel);
                 frame.getInvoicesTableModel().fireTableDataChanged();
-                
-                
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -177,33 +174,28 @@ public class ControlPanel implements ActionListener, ListSelectionListener {
         }
     }
     
-    
-    
-    
-    
     private void saveFile() {
-        
         ArrayList<Invoice> invoices = frame.getInvoices();
-        String header = "";
+        String headers = "";
         String lines = "";
         for (Invoice invoice : invoices) {
             String invCSV = invoice.getAsCSV();
-            header += invCSV;
-            header += "\n";
-
+            headers += invCSV;
+            headers += "\n";
             for (Line line : invoice.getLines()) {
                 String lineCSV = line.getAsCSV();
                 lines += lineCSV;
                 lines += "\n";
             }
         }
+       System.out.println("Check point");
         try {
             JFileChooser fchooser = new JFileChooser();
             int result = fchooser.showSaveDialog(frame);
             if (result == JFileChooser.APPROVE_OPTION) {
                 File headerFile = fchooser.getSelectedFile();
                 FileWriter hfw = new FileWriter(headerFile);
-                hfw.write(header);
+                hfw.write(headers);
                 hfw.flush();
                 hfw.close();
                 result = fchooser.showSaveDialog(frame);
@@ -217,9 +209,7 @@ public class ControlPanel implements ActionListener, ListSelectionListener {
             }
         } catch (Exception ex) {
 
-        }
-        
-       
+        } 
     }
 
     private void createNewInvoice() {
