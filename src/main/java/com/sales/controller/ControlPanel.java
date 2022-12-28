@@ -1,4 +1,3 @@
-
 package com.sales.controller;
 
 import com.sales.model.Invoice;
@@ -24,15 +23,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 
-
 public class ControlPanel implements ActionListener, ListSelectionListener {
     
     private InvoiceFrame frame;
     private InvoiceDialog invoiceDialog;
     private LineDialog lineDialog;
-    
-    
-    
     
     public ControlPanel (InvoiceFrame frame){
     this.frame = frame;
